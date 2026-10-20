@@ -1,5 +1,4 @@
 import { cacheLife, cacheTag } from "next/cache"
-import { classes as savedClasses, specialEvents as savedEvents } from "@/content/siteData"
 import { mapClassRows, mapEventRows } from "@/lib/schedule-map"
 import { parseCsv } from "@/lib/sheet-csv"
 
@@ -32,7 +31,8 @@ async function loadSheet(sheetName: string) {
 /**
  * Classes and special events shown on the site.
  * Reads the public EPIC schedule sheet. Rows with Show on website set to No
- * are left out. If a tab cannot be read, that part falls back to siteData.
+ * are left out. A missing sheet, or a sheet with nothing to show, both come
+ * back as empty lists so the pages can show the same quiet empty state.
  */
 export async function getSchedule() {
   "use cache"
@@ -50,11 +50,8 @@ export async function getSchedule() {
     }),
   ])
 
-  const classes = classRows ? mapClassRows(classRows) : null
-  const events = eventRows ? mapEventRows(eventRows) : null
-
   return {
-    classes: classes ?? savedClasses,
-    events: events ?? savedEvents,
+    classes: (classRows && mapClassRows(classRows)) || [],
+    events: (eventRows && mapEventRows(eventRows)) || [],
   }
 }

@@ -234,11 +234,11 @@ export default async function HomePage() {
                 <Sparkles />
               </EmptyMedia>
               <EmptyTitle className="font-extrabold text-ink">
-                New classes are on the way
+                No classes posted right now
               </EmptyTitle>
               <EmptyDescription>
-                The weekly list is being updated. Message us and we&apos;ll tell you
-                what&apos;s open for your child.
+                Mentors rotate through the year. Tell us what your child wants to
+                try and we&apos;ll keep you posted when a class opens.
               </EmptyDescription>
             </EmptyHeader>
             <EmptyContent>

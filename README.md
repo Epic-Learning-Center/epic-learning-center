@@ -27,7 +27,7 @@ https://docs.google.com/spreadsheets/d/1xPTSbbbwSgvuGUrOPdlVoKEza721vMMwFjz8mPy7
 - On **Special events**, add workshops and community dates. A past date drops off the calendar on its own.
 - Mentor and Staff notes stay in the sheet. The website does not show them.
 - Leave the sheet shared so anyone with the link can view it. A change shows on the site within a few minutes.
-- If the sheet cannot be reached, the site keeps the class list saved in `src/content/siteData.ts`.
+- If a tab is empty, or the sheet cannot be reached, that part of the site simply shows that nothing is posted. There is no saved class list.
 
 Membership prices, FAQs, hours, and contact links still live in `src/content/siteData.ts`.
 

@@ -3,8 +3,7 @@
  * Memberships, FAQs, hours, and contact links live here.
  *
  * Weekly classes and special events are read from the Google Sheet
- * "EPIC Learning Center — Website Schedule". The class list and special
- * events below are the backup used when that sheet cannot be reached.
+ * "EPIC Learning Center — Website Schedule". They are not stored here.
  *
  * Photos: drop JPG files into public/images/ using the filenames below.
  * Until a file is there, the page shows a labeled photo frame.
@@ -103,45 +102,6 @@ export type ClassOffering = {
   description: string
   category: ClassCategory
 }
-
-export const classes: ClassOffering[] = [
-  {
-    id: "basic-car-mechanics",
-    title: "Basic Car Mechanics",
-    ages: "Ages 12+",
-    day: "Wednesday",
-    time: "9:30am – 11:00am",
-    schedule: "Wednesdays, 9:30am – 11:00am",
-    price: "90,000 UGX (12 classes)",
-    description:
-      "Students spend half the class learning mechanical theory and the other half right under the hood of a real car! By practicing hands-on skills every week, teens finish the course feeling capable and confident.",
-    category: "STEM/Mechanics",
-  },
-  {
-    id: "history-of-the-ancient-world",
-    title: "History of the Ancient World",
-    ages: "Ages 8–11",
-    day: "Tuesday",
-    time: "10:30am – 11:30am",
-    schedule: "Tuesdays, 10:30am – 11:30am",
-    price: "100,000 UGX (12 classes)",
-    description:
-      "History comes alive with a hands-on project every single week—from carving cuneiform writing into clay to experiencing a traditional Chinese tea ceremony.",
-    category: "History",
-  },
-  {
-    id: "zumba-dance-class",
-    title: "Zumba Dance Class",
-    ages: "All Ages",
-    day: "Saturday",
-    time: "9:00am",
-    schedule: "Saturdays, 9:00am",
-    price: "10,000 UGX / drop-in",
-    description:
-      "A high-energy, fun weekend fitness dance class for everyone to enjoy!",
-    category: "Dance & Fitness",
-  },
-]
 
 export type Membership = {
   id: string
@@ -257,12 +217,6 @@ export type SpecialEvent = {
   description: string
   tag: string
 }
-
-/**
- * Backup list used only when the Special events tab cannot be read.
- * Add one-off events on that tab and set Show on website to Yes.
- */
-export const specialEvents: SpecialEvent[] = []
 
 export const heroPhotos = [
   {

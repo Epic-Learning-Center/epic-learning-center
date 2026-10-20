@@ -107,8 +107,8 @@ export default async function CalendarPage() {
                 No extra events posted yet
               </EmptyTitle>
               <EmptyDescription>
-                Weekly classes and open center hours are on as usual. Check back
-                when the month turns — or ask us what&apos;s coming.
+                Nothing extra is posted this month. Open center hours are on the
+                board above, and new events will show up here when they are added.
               </EmptyDescription>
             </EmptyHeader>
           </Empty>
