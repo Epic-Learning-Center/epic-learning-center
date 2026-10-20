@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { Suspense } from "react"
 import { CalendarDays } from "lucide-react"
 import { SignupButton } from "@/components/site/actions"
 import { PageHero, Section, SectionHeading } from "@/components/site/section"
@@ -12,6 +13,7 @@ import {
 } from "@/components/ui/empty"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { CurrentMonth } from "@/components/site/current-date"
 import { calendarMonth, siteConfig, specialEvents } from "@/content/siteData"
 
 export const metadata: Metadata = {
@@ -23,7 +25,14 @@ export const metadata: Metadata = {
 export default function CalendarPage() {
   return (
     <>
-      <PageHero eyebrow={calendarMonth.label} title="This month at EPIC.">
+      <PageHero
+        eyebrow={
+          <Suspense fallback="This month">
+            <CurrentMonth />
+          </Suspense>
+        }
+        title="This month at EPIC."
+      >
         {calendarMonth.summary} Center hours run Monday–Friday 9:00am – 6:00pm and
         Saturday 9:00am – 5:00pm for members and daily drop-ins. We&apos;re closed
         Sundays.
@@ -54,7 +63,17 @@ export default function CalendarPage() {
       </Section>
 
       <Section>
-        <SectionHeading eyebrow="Special events" title={`${calendarMonth.label} highlights.`}>
+        <SectionHeading
+          eyebrow="Special events"
+          title={
+            <>
+              <Suspense fallback="This month">
+                <CurrentMonth />
+              </Suspense>{" "}
+              highlights.
+            </>
+          }
+        >
           One-off workshops and community events land here. Weekly classes keep
           running even when this board is quiet.
         </SectionHeading>

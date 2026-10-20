@@ -32,8 +32,8 @@ export function SectionHeading({
   title,
   children,
 }: {
-  eyebrow?: string
-  title: string
+  eyebrow?: React.ReactNode
+  title: React.ReactNode
   children?: React.ReactNode
 }) {
   return (
@@ -60,7 +60,7 @@ export function PageHero({
   title,
   children,
 }: {
-  eyebrow?: string
+  eyebrow?: React.ReactNode
   title: string
   children?: React.ReactNode
 }) {

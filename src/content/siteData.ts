@@ -68,7 +68,6 @@ export const centerHours: Record<Weekday, string> = {
 }
 
 export const calendarMonth = {
-  label: "October 2026",
   summary:
     "Weekly classes run all month, alongside open center hours for members and daily drop-ins.",
 }

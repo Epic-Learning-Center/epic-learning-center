@@ -1,6 +1,8 @@
 import Link from "next/link"
+import { Suspense } from "react"
 import { Mail, MapPin, MessageCircle, Phone } from "lucide-react"
 import { navLinks, siteConfig } from "@/content/siteData"
+import { CurrentYear } from "@/components/site/current-date"
 import { Logo } from "@/components/site/logo"
 import { FacebookIcon } from "@/components/site/facebook-icon"
 
@@ -85,7 +87,11 @@ export function SiteFooter() {
       </div>
       <div className="border-t-2 border-slate-200">
         <p className="mx-auto w-full max-w-6xl px-4 py-4 text-sm font-semibold text-slate-500 sm:px-6">
-          © 2026 {siteConfig.name}. Plot 2 Speke Road, Jinja, Uganda.
+          ©{" "}
+          <Suspense fallback={null}>
+            <CurrentYear />
+          </Suspense>{" "}
+          {siteConfig.name}. Plot 2 Speke Road, Jinja, Uganda.
         </p>
       </div>
     </footer>
