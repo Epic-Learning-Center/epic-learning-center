@@ -9,7 +9,7 @@ export function SiteFooter() {
     <footer className="border-t-2 border-slate-200 bg-cloud">
       <div className="mx-auto grid w-full max-w-6xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-2 lg:grid-cols-4">
         <div className="flex flex-col gap-4">
-          <Logo />
+          <Logo size="footer" />
           <p className="max-w-xs leading-relaxed font-semibold text-body">
             Jinja&apos;s hands-on learning center and family community hub for ages 0–18.
           </p>

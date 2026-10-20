@@ -36,7 +36,7 @@ export function SiteHeader() {
       >
         Skip to content
       </a>
-      <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
+      <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-3 px-4 py-2 sm:px-6">
         <Logo />
         <nav className="hidden items-center gap-1 xl:flex" aria-label="Main">
           {navLinks.map((link) => {

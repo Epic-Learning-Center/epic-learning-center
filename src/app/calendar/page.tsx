@@ -30,7 +30,7 @@ export default function CalendarPage() {
       </PageHero>
 
       <div>
-        <div className="sticky top-[4.5rem] z-40 border-y-2 border-feather-depth bg-feather text-white">
+        <div className="sticky top-20 z-40 border-y-2 border-feather-depth bg-feather text-white sm:top-24">
           <div className="mx-auto flex w-full max-w-6xl flex-col gap-4 px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
             <p className="max-w-2xl text-base font-extrabold sm:text-lg">
               Ready to join a class this month? Click here to fill out our quick

@@ -31,6 +31,8 @@ To show a Google Calendar later, paste an embed URL into `googleCalendarEmbedUrl
 
 The site shows labeled photo frames until real pictures are added. Drop JPG files into `public/images/` with these names:
 
+The logo is already at `public/images/logo.png`.
+
 - `hero-project.jpg`
 - `hero-outdoor.jpg`
 - `hero-library.jpg`

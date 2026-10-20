@@ -1,24 +1,31 @@
+import Image from "next/image"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
 import { siteConfig } from "@/content/siteData"
 
-export function Logo({ className }: { className?: string }) {
+export function Logo({
+  className,
+  size = "header",
+}: {
+  className?: string
+  size?: "header" | "footer"
+}) {
   return (
     <Link
       href="/"
-      className={cn("flex items-center gap-2.5 rounded-2xl no-underline", className)}
+      className={cn("inline-flex shrink-0 rounded-2xl", className)}
     >
-      <span className="flex size-11 items-center justify-center rounded-2xl border-b-4 border-feather-depth bg-feather text-xl font-black text-white">
-        E
-      </span>
-      <span className="flex flex-col leading-none">
-        <span className="text-lg font-black tracking-tight text-ink">
-          {siteConfig.shortName}
-        </span>
-        <span className="text-[11px] font-extrabold tracking-wider text-slate-500 uppercase">
-          Learning Center
-        </span>
-      </span>
+      <Image
+        src="/images/logo.png"
+        alt={siteConfig.name}
+        width={960}
+        height={645}
+        priority={size === "header"}
+        className={cn(
+          "w-auto",
+          size === "header" ? "h-16 sm:h-20" : "h-28 sm:h-32"
+        )}
+      />
     </Link>
   )
 }
