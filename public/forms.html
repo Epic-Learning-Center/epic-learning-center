@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>EPIC Learning Center forms</title>
+  </head>
+  <body>
+    <!-- Static copy so Netlify can detect the newsletter form at build time. -->
+    <form name="newsletter" method="POST" action="/" data-netlify="true" data-netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="newsletter" />
+      <p hidden>
+        <label>Don’t fill this out: <input name="bot-field" /></label>
+      </p>
+      <label>
+        Email
+        <input type="email" name="email" />
+      </label>
+      <button type="submit">Send me the calendar</button>
+    </form>
+  </body>
+</html>
