@@ -35,8 +35,12 @@ export function ClassCard({ item }: { item: ClassOffering }) {
         <CardDescription>{item.schedule}</CardDescription>
       </CardHeader>
       <CardContent>
-        <p className="leading-relaxed font-semibold text-body">{item.description}</p>
-        <p className="text-lg font-black tracking-tight text-ink">{item.price}</p>
+        {item.description ? (
+          <p className="leading-relaxed font-semibold text-body">{item.description}</p>
+        ) : null}
+        {item.price ? (
+          <p className="text-lg font-black tracking-tight text-ink">{item.price}</p>
+        ) : null}
       </CardContent>
       <CardFooter>
         <SignupButton className="w-full sm:w-auto">Sign Up for This Class</SignupButton>

@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { Sparkles } from "lucide-react"
-import { classCategories, classes } from "@/content/siteData"
+import { classCategories, type ClassOffering } from "@/content/siteData"
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
 import {
   Empty,
@@ -18,7 +18,7 @@ import { ClassCard } from "@/components/site/class-card"
 const filters = ["All", ...classCategories] as const
 type Filter = (typeof filters)[number]
 
-export function ClassBrowser() {
+export function ClassBrowser({ classes }: { classes: ClassOffering[] }) {
   const [filter, setFilter] = useState<Filter>("All")
   const visible =
     filter === "All" ? classes : classes.filter((item) => item.category === filter)
@@ -55,7 +55,9 @@ export function ClassBrowser() {
               <Sparkles />
             </EmptyMedia>
             <EmptyTitle className="font-extrabold text-ink">
-              No {filter} classes this round
+              {filter === "All"
+                ? "No classes posted right now"
+                : `No ${filter} classes this round`}
             </EmptyTitle>
             <EmptyDescription>
               Mentors rotate through the year. Tell us what your child wants to

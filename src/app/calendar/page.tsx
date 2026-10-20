@@ -14,7 +14,8 @@ import {
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { CurrentMonth } from "@/components/site/current-date"
-import { calendarMonth, siteConfig, specialEvents } from "@/content/siteData"
+import { getSchedule } from "@/content/schedule"
+import { calendarMonth, siteConfig } from "@/content/siteData"
 
 export const metadata: Metadata = {
   title: "Monthly Calendar",
@@ -22,7 +23,9 @@ export const metadata: Metadata = {
     "Weekly classes and open center hours at EPIC Learning Center in Jinja, plus special events for the month.",
 }
 
-export default function CalendarPage() {
+export default async function CalendarPage() {
+  const { classes, events } = await getSchedule()
+
   return (
     <>
       <PageHero
@@ -59,7 +62,7 @@ export default function CalendarPage() {
           Colored cards are classes. The white note on each day is open center time
           for the library, study room, and outdoor play area.
         </SectionHeading>
-        <WeeklySchedule />
+        <WeeklySchedule classes={classes} />
       </Section>
 
       <Section>
@@ -77,9 +80,9 @@ export default function CalendarPage() {
           One-off workshops and community events land here. Weekly classes keep
           running even when this board is quiet.
         </SectionHeading>
-        {specialEvents.length > 0 ? (
+        {events.length > 0 ? (
           <div className="grid gap-4 md:grid-cols-2">
-            {specialEvents.map((event) => (
+            {events.map((event) => (
               <Card key={event.id} className="border-bee">
                 <CardHeader>
                   <Badge variant="age">{event.tag}</Badge>

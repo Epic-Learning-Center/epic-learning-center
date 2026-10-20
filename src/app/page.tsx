@@ -6,15 +6,24 @@ import {
   Hammer,
   House,
   Library,
+  Sparkles,
   Sun,
   TreePalm,
   Users,
 } from "lucide-react"
-import { SignupButton } from "@/components/site/actions"
+import { SignupButton, WhatsAppButton } from "@/components/site/actions"
 import { ClassCard } from "@/components/site/class-card"
 import { PhotoFrame } from "@/components/site/photo-frame"
 import { Section, SectionHeading } from "@/components/site/section"
 import { Button } from "@/components/ui/button"
+import {
+  Empty,
+  EmptyContent,
+  EmptyDescription,
+  EmptyHeader,
+  EmptyMedia,
+  EmptyTitle,
+} from "@/components/ui/empty"
 import {
   Card,
   CardContent,
@@ -23,13 +32,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import {
-  audiences,
-  classes,
-  heroPhotos,
-  highlights,
-  safetyPoints,
-} from "@/content/siteData"
+import { getSchedule } from "@/content/schedule"
+import { audiences, heroPhotos, highlights, safetyPoints } from "@/content/siteData"
 import { cn } from "@/lib/utils"
 
 const audienceIcons = {
@@ -66,7 +70,9 @@ const highlightTone = [
   "bg-[#FFE4E4] text-[#C62828]",
 ]
 
-export default function HomePage() {
+export default async function HomePage() {
+  const { classes } = await getSchedule()
+
   return (
     <>
       <section className="bg-white pt-10 pb-16 sm:pt-16 sm:pb-20">
@@ -215,11 +221,31 @@ export default function HomePage() {
             See all offerings
           </Button>
         </div>
-        <div className="grid gap-4 lg:grid-cols-3">
-          {classes.map((item) => (
-            <ClassCard key={item.id} item={item} />
-          ))}
-        </div>
+        {classes.length > 0 ? (
+          <div className="grid gap-4 lg:grid-cols-3">
+            {classes.map((item) => (
+              <ClassCard key={item.id} item={item} />
+            ))}
+          </div>
+        ) : (
+          <Empty className="rounded-3xl border-2 border-dashed border-slate-200 bg-white">
+            <EmptyHeader>
+              <EmptyMedia variant="icon">
+                <Sparkles />
+              </EmptyMedia>
+              <EmptyTitle className="font-extrabold text-ink">
+                New classes are on the way
+              </EmptyTitle>
+              <EmptyDescription>
+                The weekly list is being updated. Message us and we&apos;ll tell you
+                what&apos;s open for your child.
+              </EmptyDescription>
+            </EmptyHeader>
+            <EmptyContent>
+              <WhatsAppButton size="sm">Ask about a class</WhatsAppButton>
+            </EmptyContent>
+          </Empty>
+        )}
         <Card className="border-macaw bg-macaw text-white">
           <CardHeader>
             <p className="text-sm font-extrabold tracking-wider text-white/90 uppercase">

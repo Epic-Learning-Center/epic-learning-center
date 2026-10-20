@@ -1,7 +1,10 @@
 /**
  * Shared content for the EPIC Learning Center website.
- * Update classes, memberships, FAQs, hours, and contact links here.
- * Home, What We Offer, and the Monthly Calendar all read from this file.
+ * Memberships, FAQs, hours, and contact links live here.
+ *
+ * Weekly classes and special events are read from the Google Sheet
+ * "EPIC Learning Center — Website Schedule". The class list and special
+ * events below are the backup used when that sheet cannot be reached.
  *
  * Photos: drop JPG files into public/images/ using the filenames below.
  * Until a file is there, the page shows a labeled photo frame.
@@ -140,10 +143,6 @@ export const classes: ClassOffering[] = [
   },
 ]
 
-export function classesOn(day: Weekday) {
-  return classes.filter((item) => item.day === day)
-}
-
 export type Membership = {
   id: string
   name: string
@@ -260,17 +259,8 @@ export type SpecialEvent = {
 }
 
 /**
- * One-off events for the current month. Leave the list empty when there
- * are no extras — the calendar will say so, and weekly classes still show.
- *
- * Example:
- * {
- *   id: "story-hour",
- *   title: "Saturday Story Hour",
- *   when: "Saturday 25 October · 11:00am",
- *   description: "A read-aloud morning in the children's library.",
- *   tag: "Library",
- * }
+ * Backup list used only when the Special events tab cannot be read.
+ * Add one-off events on that tab and set Show on website to Yes.
  */
 export const specialEvents: SpecialEvent[] = []
 

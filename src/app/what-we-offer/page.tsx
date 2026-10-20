@@ -11,6 +11,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
+import { getSchedule } from "@/content/schedule"
 import { memberships, rentalIncludes, siteConfig } from "@/content/siteData"
 import { cn } from "@/lib/utils"
 
@@ -26,7 +27,9 @@ const accentBorder = {
   beetle: "border-beetle",
 } as const
 
-export default function WhatWeOfferPage() {
+export default async function WhatWeOfferPage() {
+  const { classes } = await getSchedule()
+
   return (
     <>
       <PageHero
@@ -71,7 +74,7 @@ export default function WhatWeOfferPage() {
         <SectionHeading eyebrow="Classes" title="Current and upcoming classes.">
           Filter by subject. Every card links straight to the registration form.
         </SectionHeading>
-        <ClassBrowser />
+        <ClassBrowser classes={classes} />
       </Section>
 
       <Section id="worldschooling" className="scroll-mt-24">

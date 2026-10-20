@@ -17,27 +17,29 @@ npm run dev -- --hostname 127.0.0.1 --port 43123
 
 `npm run dev` on its own uses port 3000.
 
-## Update classes, prices, and the calendar
+## Update classes and special events
 
-Almost all of the words on the site live in one file:
+Weekly classes and one-off events come from the Google Sheet **EPIC Learning Center — Website Schedule**:
 
-`src/content/siteData.ts`
+https://docs.google.com/spreadsheets/d/1xPTSbbbwSgvuGUrOPdlVoKEza721vMMwFjz8mPy7RtM/edit
 
-Change a class, a membership price, an FAQ, the phone number, or this month’s special events there. The Home page, What We Offer page, and Monthly Calendar all stay in sync.
+- On **Classes**, set **Show on website** to Yes for a class that should appear on Home, What We Offer, and the Monthly Calendar.
+- On **Special events**, add workshops and community dates. A past date drops off the calendar on its own.
+- Mentor and Staff notes stay in the sheet. The website does not show them.
+- Leave the sheet shared so anyone with the link can view it. A change shows on the site within a few minutes.
+- If the sheet cannot be reached, the site keeps the class list saved in `src/content/siteData.ts`.
+
+Membership prices, FAQs, hours, and contact links still live in `src/content/siteData.ts`.
 
 To show a Google Calendar later, paste an embed URL into `googleCalendarEmbedUrl` in that same file. Leave it as `""` to hide the embed.
 
 ## Photos
 
-The site shows labeled photo frames until real pictures are added. Drop JPG files into `public/images/` with these names:
-
-The logo is already at `public/images/logo.png`.
+The logo and founder portraits are already in place. Drop the remaining photos into `public/images/` with these names:
 
 - `hero-project.jpg`
 - `hero-outdoor.jpg`
 - `hero-library.jpg`
-- `founder-danyne.jpg`
-- `founder-tanya.jpg`
 
 ## Newsletter (Netlify, no monthly fee)
 

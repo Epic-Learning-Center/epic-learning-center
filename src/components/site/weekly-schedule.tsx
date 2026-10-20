@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { centerHours, classesOn, weekDays } from "@/content/siteData"
+import { centerHours, weekDays, type ClassOffering } from "@/content/siteData"
 import { cn } from "@/lib/utils"
 
 const dayTone: Record<(typeof weekDays)[number], string> = {
@@ -11,11 +11,13 @@ const dayTone: Record<(typeof weekDays)[number], string> = {
   Saturday: "border-coral bg-[#FFF0F0]",
 }
 
-export function WeeklySchedule() {
+export function WeeklySchedule({ classes }: { classes: ClassOffering[] }) {
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-6">
       {weekDays.map((day) => {
-        const sessions = classesOn(day)
+        const sessions = classes
+          .filter((item) => item.day === day)
+          .sort((a, b) => startMinutes(a.time) - startMinutes(b.time))
         return (
           <article
             key={day}
@@ -56,4 +58,17 @@ export function WeeklySchedule() {
       })}
     </div>
   )
+}
+
+function startMinutes(time: string) {
+  const start = time.split("–")[0]?.trim().toLowerCase() ?? ""
+  const match = start.match(/^(\d{1,2})(?::(\d{2}))?(am|pm)?$/)
+  if (!match) return Number.POSITIVE_INFINITY
+
+  let hours = Number(match[1])
+  const minutes = Number(match[2] ?? 0)
+  const meridiem = match[3]
+  if (meridiem === "pm" && hours < 12) hours += 12
+  if (meridiem === "am" && hours === 12) hours = 0
+  return hours * 60 + minutes
 }
