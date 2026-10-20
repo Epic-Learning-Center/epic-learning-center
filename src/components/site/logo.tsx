@@ -23,7 +23,7 @@ export function Logo({
         priority={size === "header"}
         className={cn(
           "w-auto",
-          size === "header" ? "h-16 sm:h-20" : "h-28 sm:h-32"
+          size === "header" ? "h-16 sm:h-20" : "h-20"
         )}
       />
     </Link>

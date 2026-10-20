@@ -7,10 +7,10 @@ import { FacebookIcon } from "@/components/site/facebook-icon"
 export function SiteFooter() {
   return (
     <footer className="border-t-2 border-slate-200 bg-cloud">
-      <div className="mx-auto grid w-full max-w-6xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-2 lg:grid-cols-4">
+      <div className="mx-auto grid w-full max-w-6xl gap-x-10 gap-y-10 px-4 py-12 sm:px-6 md:grid-cols-2 lg:grid-cols-[11rem_minmax(0,1.15fr)_minmax(0,1.45fr)_minmax(0,0.75fr)]">
         <div className="flex flex-col gap-4">
           <Logo size="footer" />
-          <p className="max-w-xs leading-relaxed font-semibold text-body">
+          <p className="leading-relaxed font-semibold text-body">
             Jinja&apos;s hands-on learning center and family community hub for ages 0–18.
           </p>
         </div>
@@ -23,10 +23,11 @@ export function SiteFooter() {
               <span className="mt-1 block text-sm">{siteConfig.directions}</span>
             </span>
           </p>
-          <ul className="flex flex-col gap-1 font-semibold text-body">
+          <ul className="flex flex-col gap-3 font-semibold text-body">
             {siteConfig.hours.map((slot) => (
               <li key={slot.days}>
-                <span className="font-extrabold text-ink">{slot.days}:</span> {slot.time}
+                <span className="block font-extrabold text-ink">{slot.days}</span>
+                <span className="whitespace-nowrap">{slot.time}</span>
               </li>
             ))}
           </ul>
@@ -51,10 +52,10 @@ export function SiteFooter() {
           </a>
           <a
             href={siteConfig.emailHref}
-            className="flex items-center gap-2 font-semibold break-all text-body no-underline hover:text-ink"
+            className="flex items-start gap-2 font-semibold text-body no-underline hover:text-ink"
           >
-            <Mail className="size-4 shrink-0 text-bee" aria-hidden="true" />
-            {siteConfig.email}
+            <Mail className="mt-0.5 size-4 shrink-0 text-bee" aria-hidden="true" />
+            <span className="break-words">{siteConfig.email}</span>
           </a>
           <a
             href={siteConfig.facebookUrl}
