@@ -376,14 +376,14 @@ export const founders = [
     name: "Danyne Bharj",
     role: "Co-Founder",
     image: "/images/founder-danyne.jpg",
-    caption: "[Photo Placeholder: Danyne Bharj]",
+    caption: "",
     bio: "Veteran homeschooling mom of five who has lived in Uganda with her family for many years. Danyne founded the Amani Baby Cottage in Jinja, and her family are entrepreneurs running several local businesses. She loves bringing people together and has a gift for making everyone feel “most welcome.”",
   },
   {
     name: "Tanya Holmes",
     role: "Co-Founder",
     image: "/images/founder-tanya.jpg",
-    caption: "[Photo Placeholder: Tanya Holmes]",
+    caption: "",
     bio: "Canadian homeschooling mom of ten (five grown children and five adopted Ugandan children) who came to Uganda with her family to manufacture and distribute nutritional supplements. Tanya has a gift for bringing education alive through hands-on learning experiences and loves seeing kids captivated by what they discover.",
   },
 ] as const

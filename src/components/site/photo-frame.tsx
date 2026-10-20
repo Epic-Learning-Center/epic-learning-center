@@ -27,14 +27,16 @@ export function PhotoFrame({
   tone = "feather",
   icon = "project",
   priority = false,
+  aspect = "landscape",
   className,
 }: {
   src: string
   alt: string
-  caption: string
+  caption?: string
   tone?: keyof typeof tones
   icon?: keyof typeof icons
   priority?: boolean
+  aspect?: "landscape" | "portrait"
   className?: string
 }) {
   const [failed, setFailed] = useState(false)
@@ -47,7 +49,13 @@ export function PhotoFrame({
         className
       )}
     >
-      <div className={cn("relative aspect-[4/3]", tones[tone])}>
+      <div
+        className={cn(
+          "relative",
+          aspect === "portrait" ? "aspect-[4/5]" : "aspect-[4/3]",
+          tones[tone]
+        )}
+      >
         {failed ? (
           <div className="flex size-full flex-col items-center justify-center gap-3 px-6 text-center">
             <Icon className="size-10" aria-hidden="true" />
@@ -61,14 +69,16 @@ export function PhotoFrame({
             unoptimized
             priority={priority}
             sizes="(min-width: 1024px) 360px, 100vw"
-            className="object-cover"
+            className={aspect === "portrait" ? "object-cover object-top" : "object-cover"}
             onError={() => setFailed(true)}
           />
         )}
       </div>
-      <figcaption className="px-4 py-3 text-sm font-extrabold text-slate-500">
-        {caption}
-      </figcaption>
+      {caption ? (
+        <figcaption className="px-4 py-3 text-sm font-extrabold text-slate-500">
+          {caption}
+        </figcaption>
+      ) : null}
     </figure>
   )
 }

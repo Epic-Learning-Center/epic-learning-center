@@ -43,6 +43,7 @@ export default function WhoWeArePage() {
                 caption={founder.caption}
                 tone="beetle"
                 icon="person"
+                aspect="portrait"
               />
               <CardHeader>
                 <CardTitle>{founder.name}</CardTitle>
