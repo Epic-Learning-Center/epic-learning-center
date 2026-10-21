@@ -42,7 +42,7 @@ export default async function CalendarPage() {
       </PageHero>
 
       <div>
-        <div className="sticky top-20 z-40 border-y-2 border-feather-depth bg-feather text-white sm:top-24">
+        <div className="sticky top-24 z-40 mt-8 border-y-2 border-feather-depth bg-feather text-white sm:top-28 sm:mt-10">
           <div className="mx-auto flex w-full max-w-6xl flex-col gap-4 px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
             <p className="max-w-2xl text-base font-extrabold sm:text-lg">
               Ready to join a class this month? Click here to fill out our quick
@@ -54,12 +54,12 @@ export default async function CalendarPage() {
           </div>
         </div>
 
-      <Section tone="cloud">
+      <Section tone="cloud" wide className="pt-10 sm:pt-12">
         <SectionHeading
           eyebrow="Weekly rhythm"
           title="Monday through Saturday."
         >
-          Colored cards are classes. The white note on each day is open center time
+          Colored cards are classes. Under each day is when the center is open
           for the library, study room, and outdoor play area.
         </SectionHeading>
         <WeeklySchedule classes={classes} />

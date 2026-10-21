@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { Suspense } from "react"
-import { Mail, MapPin, MessageCircle, Phone } from "lucide-react"
+import { Mail, MessageCircle, Phone } from "lucide-react"
 import { navLinks, siteConfig } from "@/content/siteData"
 import { CurrentYear } from "@/components/site/current-date"
 import { Logo } from "@/components/site/logo"
@@ -18,12 +18,16 @@ export function SiteFooter() {
         </div>
         <div className="flex flex-col gap-3">
           <h2 className="text-sm font-extrabold tracking-wider text-ink uppercase">Visit</h2>
-          <p className="flex items-start gap-2 font-semibold text-body">
-            <MapPin className="mt-0.5 size-4 shrink-0 text-macaw" aria-hidden="true" />
-            <span>
+          <p className="font-semibold text-body">
+            <a
+              href={siteConfig.mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-body underline decoration-slate-300 underline-offset-4 hover:text-ink"
+            >
               {siteConfig.address}
-              <span className="mt-1 block text-sm">{siteConfig.directions}</span>
-            </span>
+            </a>
+            <span className="mt-1 block text-sm">{siteConfig.directions}</span>
           </p>
           <ul className="flex flex-col gap-3 font-semibold text-body">
             {siteConfig.hours.map((slot) => (

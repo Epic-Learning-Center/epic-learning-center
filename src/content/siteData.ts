@@ -31,6 +31,8 @@ export const siteConfig = {
   ],
   hoursSummary:
     "Mon–Fri 9:00am – 6:00pm | Sat 9:00am – 5:00pm | Closed Sundays",
+  mapsUrl:
+    "https://www.google.com/maps/search/?api=1&query=Plot%202%20Speke%20Road%2C%20Jinja%2C%20Uganda",
   mapEmbedUrl:
     "https://maps.google.com/maps?q=Speke%20Road%20and%20Bell%20Avenue%2C%20Jinja%2C%20Uganda&hl=en&z=16&output=embed",
   /**

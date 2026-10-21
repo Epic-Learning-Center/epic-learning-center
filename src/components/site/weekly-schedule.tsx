@@ -2,6 +2,15 @@ import Link from "next/link"
 import { centerHours, weekDays, type ClassOffering } from "@/content/siteData"
 import { cn } from "@/lib/utils"
 
+const dayRule: Record<(typeof weekDays)[number], string> = {
+  Monday: "border-slate-300",
+  Tuesday: "border-bee",
+  Wednesday: "border-macaw",
+  Thursday: "border-slate-300",
+  Friday: "border-slate-300",
+  Saturday: "border-coral",
+}
+
 const dayTone: Record<(typeof weekDays)[number], string> = {
   Monday: "border-slate-200 bg-white",
   Tuesday: "border-bee bg-[#FFF8DC]",
@@ -13,24 +22,18 @@ const dayTone: Record<(typeof weekDays)[number], string> = {
 
 export function WeeklySchedule({ classes }: { classes: ClassOffering[] }) {
   return (
-    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-6">
+    <div className="grid grid-cols-1 gap-x-5 gap-y-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
       {weekDays.map((day) => {
         const sessions = classes
           .filter((item) => item.day === day)
           .sort((a, b) => startMinutes(a.time) - startMinutes(b.time))
         return (
-          <article
-            key={day}
-            className="flex flex-col gap-3 rounded-3xl border-2 border-b-4 border-slate-200 bg-cloud p-4"
-          >
-            <h3 className="text-lg font-black tracking-tight text-ink">{day}</h3>
-            <p className="rounded-2xl border-2 border-slate-200 bg-white px-3 py-2 text-sm font-extrabold text-slate-600">
-              Center open
-              <span className="mt-1 block font-black text-ink">{centerHours[day]}</span>
-              <span className="mt-1 block text-xs font-semibold text-body">
-                Library, study room & outdoor play
-              </span>
-            </p>
+          <article key={day} className="flex min-w-0 flex-col gap-3">
+            <div className={cn("border-t-4 pt-3", dayRule[day])}>
+              <h3 className="text-lg font-black tracking-tight text-ink">{day}</h3>
+              <p className="mt-1 text-sm font-extrabold text-ink">{centerHours[day]}</p>
+              <p className="text-xs font-semibold text-body">Library, study & outdoor play</p>
+            </div>
             {sessions.length > 0 ? (
               sessions.map((session) => (
                 <Link
@@ -41,17 +44,13 @@ export function WeeklySchedule({ classes }: { classes: ClassOffering[] }) {
                     dayTone[day]
                   )}
                 >
-                  <p className="text-xs font-extrabold tracking-wider text-slate-500 uppercase">
-                    {session.time}
-                  </p>
+                  <p className="text-sm font-extrabold text-slate-600">{session.time}</p>
                   <p className="mt-1 font-extrabold text-ink">{session.title}</p>
                   <p className="mt-1 text-sm font-semibold text-body">{session.ages}</p>
                 </Link>
               ))
             ) : (
-              <p className="px-1 text-sm font-semibold text-slate-500">
-                Open play and study. No scheduled class.
-              </p>
+              <p className="text-sm font-semibold text-slate-500">No class scheduled</p>
             )}
           </article>
         )

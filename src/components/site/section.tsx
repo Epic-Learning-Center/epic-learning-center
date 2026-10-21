@@ -10,17 +10,24 @@ const tones = {
 export function Section({
   id,
   tone = "white",
+  wide = false,
   className,
   children,
 }: {
   id?: string
   tone?: keyof typeof tones
+  wide?: boolean
   className?: string
   children: React.ReactNode
 }) {
   return (
     <section id={id} className={cn("py-16 sm:py-20", tones[tone], className)}>
-      <div className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 sm:px-6">
+      <div
+        className={cn(
+          "mx-auto flex w-full flex-col gap-10 px-4 sm:px-6",
+          wide ? "max-w-7xl" : "max-w-6xl"
+        )}
+      >
         {children}
       </div>
     </section>
