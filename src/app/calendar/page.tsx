@@ -42,11 +42,11 @@ export default async function CalendarPage() {
       </PageHero>
 
       <div>
-        <div className="sticky top-24 z-40 mt-8 border-y-2 border-feather-depth bg-feather text-white sm:top-28 sm:mt-10">
+        <div className="h-8 sm:h-10" aria-hidden="true" />
+        <div className="sticky top-[var(--header-height)] z-40 border-y-2 border-feather-depth bg-feather text-white">
           <div className="mx-auto flex w-full max-w-6xl flex-col gap-4 px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
-            <p className="max-w-2xl text-base font-extrabold sm:text-lg">
-              Ready to join a class this month? Click here to fill out our quick
-              Registration Form!
+            <p className="max-w-2xl text-lg font-extrabold sm:text-xl">
+              Ready to join? Click here to register!
             </p>
             <SignupButton variant="outline" className="w-full shrink-0 sm:w-auto">
               Registration Form

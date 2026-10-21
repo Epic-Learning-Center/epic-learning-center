@@ -30,9 +30,9 @@ export function WeeklySchedule({ classes }: { classes: ClassOffering[] }) {
         return (
           <article key={day} className="flex min-w-0 flex-col gap-3">
             <div className={cn("border-t-4 pt-3", dayRule[day])}>
-              <h3 className="text-lg font-black tracking-tight text-ink">{day}</h3>
-              <p className="mt-1 text-sm font-extrabold text-ink">{centerHours[day]}</p>
-              <p className="text-xs font-semibold text-body">Library, study & outdoor play</p>
+              <h3 className="text-xl font-black tracking-tight text-ink">{day}</h3>
+              <p className="mt-1 text-base font-extrabold text-ink">{centerHours[day]}</p>
+              <p className="text-sm font-semibold text-body">Library, study & outdoor play</p>
             </div>
             {sessions.length > 0 ? (
               sessions.map((session) => (
@@ -44,13 +44,13 @@ export function WeeklySchedule({ classes }: { classes: ClassOffering[] }) {
                     dayTone[day]
                   )}
                 >
-                  <p className="text-sm font-extrabold text-slate-600">{session.time}</p>
-                  <p className="mt-1 font-extrabold text-ink">{session.title}</p>
-                  <p className="mt-1 text-sm font-semibold text-body">{session.ages}</p>
+                  <p className="text-base font-extrabold text-slate-600">{session.time}</p>
+                  <p className="mt-1 text-lg font-extrabold text-ink">{session.title}</p>
+                  <p className="mt-1 text-base font-semibold text-body">{session.ages}</p>
                 </Link>
               ))
             ) : (
-              <p className="text-sm font-semibold text-slate-500">No class scheduled</p>
+              <p className="text-base font-semibold text-slate-500">No class scheduled</p>
             )}
           </article>
         )

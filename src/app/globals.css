@@ -61,6 +61,7 @@
 }
 
 :root {
+  --header-height: calc(4rem + 1rem + 2px);
   --background: #ffffff;
   --foreground: #1e293b;
   --card: #ffffff;
@@ -95,11 +96,18 @@
   --sidebar-ring: #58cc02;
 }
 
+@media (min-width: 640px) {
+  :root {
+    --header-height: calc(5rem + 1rem + 2px);
+  }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
   html {
+    font-size: 110%;
     @apply font-sans scroll-smooth;
   }
   body {

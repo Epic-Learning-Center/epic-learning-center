@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import Image from "next/image"
 import { Badge } from "@/components/ui/badge"
 import {
   Card,
@@ -57,10 +58,38 @@ export default function WhoWeArePage() {
         </div>
       </Section>
 
+      <Section className="pt-0">
+        <figure className="overflow-hidden rounded-3xl border-2 border-b-4 border-slate-200 bg-white">
+          <div className="relative aspect-[3/2]">
+            <Image
+              src="/images/classroom-circle.jpg"
+              alt="Children and mentors gathered for a class in the yellow classroom"
+              fill
+              unoptimized
+              sizes="(min-width: 1024px) 1100px, 100vw"
+              className="object-cover"
+            />
+          </div>
+          <figcaption className="px-4 py-3 text-base font-extrabold text-slate-500">
+            A class gathering in the big room
+          </figcaption>
+        </figure>
+      </Section>
+
       <Section tone="cloud">
         <div className="grid gap-4 lg:grid-cols-2">
-          <Card>
-            <CardHeader>
+          <Card className="overflow-hidden p-0">
+            <div className="relative aspect-[3/2]">
+              <Image
+                src="/images/chess-lesson.jpg"
+                alt="A mentor teaching children chess in the classroom"
+                fill
+                unoptimized
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="object-cover"
+              />
+            </div>
+            <CardHeader className="px-6 sm:px-8">
               <CardTitle>Meet our mentors</CardTitle>
               <CardDescription>
                 EPIC&apos;s mentors rotate with our classes. We tap into Jinja&apos;s
@@ -69,7 +98,7 @@ export default function WhoWeArePage() {
                 literacy to Afro-dance and breakdancing.
               </CardDescription>
             </CardHeader>
-            <CardContent>
+            <CardContent className="px-6 pb-6 sm:px-8 sm:pb-8">
               <div className="flex flex-wrap gap-2">
                 {mentorSubjects.map((subject) => (
                   <Badge key={subject} variant="outline">
@@ -79,8 +108,18 @@ export default function WhoWeArePage() {
               </div>
             </CardContent>
           </Card>
-          <Card className="border-macaw">
-            <CardHeader>
+          <Card className="overflow-hidden border-macaw p-0">
+            <div className="relative aspect-[3/2]">
+              <Image
+                src="/images/drawing-maps.jpg"
+                alt="A child drawing a map during a hands-on lesson"
+                fill
+                unoptimized
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="object-cover object-[center_20%]"
+              />
+            </div>
+            <CardHeader className="px-6 sm:px-8">
               <CardTitle>Meet our tutors</CardTitle>
               <CardDescription>
                 We offer private 1-on-1 and small-group tutoring sessions across
@@ -89,7 +128,7 @@ export default function WhoWeArePage() {
                 goals.
               </CardDescription>
             </CardHeader>
-            <CardContent>
+            <CardContent className="px-6 pb-6 sm:px-8 sm:pb-8">
               <WhatsAppButton>Ask about a tutor</WhatsAppButton>
             </CardContent>
           </Card>

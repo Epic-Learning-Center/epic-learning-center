@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 import {
   Check,
@@ -246,29 +247,41 @@ export default async function HomePage() {
             </EmptyContent>
           </Empty>
         )}
-        <Card className="border-macaw bg-macaw text-white">
-          <CardHeader>
-            <p className="text-sm font-extrabold tracking-wider text-white/90 uppercase">
-              EPIC Worldschooling Hub
-            </p>
-            <CardTitle className="text-3xl text-white">
-              Adventure for kids. Work time for parents.
-            </CardTitle>
-            <CardDescription className="text-white/95">
-              Visiting children join classes alongside local kids — crafts, drumming,
-              dance, and culture — while traveling parents get a quiet place to work
-              in the Adventure Capital of East Africa.
-            </CardDescription>
-          </CardHeader>
-          <CardFooter>
-            <Button
-              variant="outline"
-              nativeButton={false}
-              render={<Link href="/what-we-offer#worldschooling" />}
-            >
-              Explore the hub
-            </Button>
-          </CardFooter>
+        <Card className="overflow-hidden border-macaw bg-macaw p-0 text-white lg:flex-row">
+          <div className="flex flex-1 flex-col gap-4 p-6 sm:p-8">
+            <CardHeader>
+              <p className="text-sm font-extrabold tracking-wider text-white/90 uppercase">
+                EPIC Worldschooling Hub
+              </p>
+              <CardTitle className="text-3xl text-white">
+                Adventure for kids. Work time for parents.
+              </CardTitle>
+              <CardDescription className="text-white/95">
+                Visiting children join classes alongside local kids — crafts, drumming,
+                dance, and culture — while traveling parents get a quiet place to work
+                in the Adventure Capital of East Africa.
+              </CardDescription>
+            </CardHeader>
+            <CardFooter>
+              <Button
+                variant="outline"
+                nativeButton={false}
+                render={<Link href="/what-we-offer#worldschooling" />}
+              >
+                Explore the hub
+              </Button>
+            </CardFooter>
+          </div>
+          <div className="relative order-first min-h-72 lg:order-last lg:w-[44%]">
+            <Image
+              src="/images/soccer-group.jpg"
+              alt="Children and a mentor with soccer balls on the grass at EPIC"
+              fill
+              unoptimized
+              sizes="(min-width: 1024px) 40vw, 100vw"
+              className="object-cover"
+            />
+          </div>
         </Card>
       </Section>
     </>

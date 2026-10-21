@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Menu, X } from "lucide-react"
@@ -18,6 +18,22 @@ function isActive(pathname: string, href: string) {
 export function SiteHeader() {
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
+  const barRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const bar = barRef.current
+    if (!bar) return
+    const apply = () => {
+      document.documentElement.style.setProperty(
+        "--header-height",
+        `${Math.round(bar.getBoundingClientRect().height) + 2}px`
+      )
+    }
+    apply()
+    const observer = new ResizeObserver(apply)
+    observer.observe(bar)
+    return () => observer.disconnect()
+  }, [])
 
   useEffect(() => {
     if (!open) return
@@ -36,7 +52,10 @@ export function SiteHeader() {
       >
         Skip to content
       </a>
-      <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-3 px-4 py-2 sm:px-6">
+      <div
+        ref={barRef}
+        className="mx-auto flex w-full max-w-6xl items-center justify-between gap-3 px-4 py-2 sm:px-6"
+      >
         <Logo />
         <nav className="hidden items-center gap-1 xl:flex" aria-label="Main">
           {navLinks.map((link) => {

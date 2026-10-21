@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import Image from "next/image"
 import { SignupButton, WhatsAppButton } from "@/components/site/actions"
 import { CheckList } from "@/components/site/check-list"
 import { ClassBrowser } from "@/components/site/class-browser"
@@ -117,22 +118,36 @@ export default async function WhatWeOfferPage() {
               <WhatsAppButton>Plan a worldschooling stay</WhatsAppButton>
             </CardFooter>
           </Card>
-          <Card className="border-bee bg-[#FFF8DC]">
-            <CardHeader>
-              <CardTitle>Good to know</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <CheckList
-                items={[
-                  "Kids learn beside local children, not in a separate tourist group.",
-                  "Quiet study room and library for online schoolwork.",
-                  "Drop-off for ages 11+ while parents work or explore Jinja.",
-                  "Scheduled cohorts, or custom days built around your trip.",
-                  "Stay nearby through Surjio's GuestHouse.",
-                ]}
-              />
-            </CardContent>
-          </Card>
+          <div className="flex flex-col gap-4">
+            <figure className="overflow-hidden rounded-3xl border-2 border-b-4 border-slate-200">
+              <div className="relative aspect-[4/3]">
+                <Image
+                  src="/images/painting-benches.jpg"
+                  alt="Older students painting benches in the compound"
+                  fill
+                  unoptimized
+                  sizes="(min-width: 1024px) 30vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
+            </figure>
+            <Card className="border-bee bg-[#FFF8DC]">
+              <CardHeader>
+                <CardTitle>Good to know</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CheckList
+                  items={[
+                    "Kids learn beside local children, not in a separate tourist group.",
+                    "Quiet study room and library for online schoolwork.",
+                    "Drop-off for ages 11+ while parents work or explore Jinja.",
+                    "Scheduled cohorts, or custom days built around your trip.",
+                    "Stay nearby through Surjio's GuestHouse.",
+                  ]}
+                />
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </Section>
 

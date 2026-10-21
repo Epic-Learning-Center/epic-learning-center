@@ -141,11 +141,11 @@ export default function JoinUsPage() {
               </ul>
             </CardContent>
           </Card>
-          <div className="overflow-hidden rounded-3xl border-2 border-b-4 border-slate-200 bg-cloud">
+          <div className="h-full min-h-[420px] overflow-hidden rounded-3xl border-2 border-b-4 border-slate-200">
             <iframe
               title="Map showing EPIC Learning Center at Plot 2 Speke Road, Jinja, Uganda"
               src={siteConfig.mapEmbedUrl}
-              className="h-[420px] w-full"
+              className="block h-full min-h-[420px] w-full border-0"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             />
