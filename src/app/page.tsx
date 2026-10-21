@@ -34,7 +34,13 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { getSchedule } from "@/content/schedule"
-import { audiences, heroPhotos, highlights, safetyPoints } from "@/content/siteData"
+import {
+  audiences,
+  familyQuote,
+  heroPhotos,
+  highlights,
+  safetyPoints,
+} from "@/content/siteData"
 import { cn } from "@/lib/utils"
 
 const audienceIcons = {
@@ -187,6 +193,14 @@ export default async function HomePage() {
             )
           })}
         </div>
+        <figure className="max-w-3xl border-l-4 border-bee pl-5 sm:pl-6">
+          <blockquote className="text-lg leading-relaxed font-extrabold text-ink sm:text-xl">
+            “{familyQuote.text}”
+          </blockquote>
+          <figcaption className="mt-4 text-base font-extrabold text-slate-500">
+            {familyQuote.attribution}
+          </figcaption>
+        </figure>
       </Section>
 
       <Section tone="green">
