@@ -24,6 +24,8 @@ Weekly classes and one-off events come from the Google Sheet **EPIC Learning Cen
 https://docs.google.com/spreadsheets/d/1xPTSbbbwSgvuGUrOPdlVoKEza721vMMwFjz8mPy7RtM/edit
 
 - On **Classes**, set **Show on website** to Yes for a class that should appear on Home, What We Offer, and the Monthly Calendar.
+- Drag a row up or down to change the order on the website. The Sort order column is not used and can be deleted.
+- Category can be any label. A new one shows up as a filter on What We Offer.
 - On **Special events**, add workshops and community dates. A past date drops off the calendar on its own.
 - Mentor and Staff notes stay in the sheet. The website does not show them.
 - Leave the sheet shared so anyone with the link can view it. A change shows on the site within a few minutes.

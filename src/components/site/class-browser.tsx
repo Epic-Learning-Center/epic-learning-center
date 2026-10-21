@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { Sparkles } from "lucide-react"
-import { classCategories, type ClassOffering } from "@/content/siteData"
+import type { ClassOffering } from "@/content/siteData"
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
 import {
   Empty,
@@ -15,27 +15,26 @@ import {
 import { WhatsAppButton } from "@/components/site/actions"
 import { ClassCard } from "@/components/site/class-card"
 
-const filters = ["All", ...classCategories] as const
-type Filter = (typeof filters)[number]
-
 export function ClassBrowser({ classes }: { classes: ClassOffering[] }) {
-  const [filter, setFilter] = useState<Filter>("All")
+  const categories = categoriesInOrder(classes)
+  const [filter, setFilter] = useState("All")
+  const selected = filter === "All" || categories.includes(filter) ? filter : "All"
   const visible =
-    filter === "All" ? classes : classes.filter((item) => item.category === filter)
+    selected === "All" ? classes : classes.filter((item) => item.category === selected)
 
   return (
     <div className="flex flex-col gap-6">
       <ToggleGroup
-        value={[filter]}
+        value={[selected]}
         onValueChange={(next) => {
-          const selected = next[0] as Filter | undefined
-          if (selected) setFilter(selected)
+          const nextFilter = next[0]
+          if (nextFilter) setFilter(nextFilter)
         }}
         spacing={2}
         className="w-full flex-wrap gap-2"
         aria-label="Filter classes by category"
       >
-        {filters.map((item) => (
+        {["All", ...categories].map((item) => (
           <ToggleGroupItem key={item} value={item} variant="outline">
             {item}
           </ToggleGroupItem>
@@ -55,9 +54,9 @@ export function ClassBrowser({ classes }: { classes: ClassOffering[] }) {
               <Sparkles />
             </EmptyMedia>
             <EmptyTitle className="font-extrabold text-ink">
-              {filter === "All"
+              {selected === "All"
                 ? "No classes posted right now"
-                : `No ${filter} classes this round`}
+                : `No ${selected} classes this round`}
             </EmptyTitle>
             <EmptyDescription>
               Mentors rotate through the year. Tell us what your child wants to
@@ -71,4 +70,13 @@ export function ClassBrowser({ classes }: { classes: ClassOffering[] }) {
       )}
     </div>
   )
+}
+
+function categoriesInOrder(classes: ClassOffering[]) {
+  const categories: string[] = []
+  for (const item of classes) {
+    if (!item.category || categories.includes(item.category)) continue
+    categories.push(item.category)
+  }
+  return categories
 }

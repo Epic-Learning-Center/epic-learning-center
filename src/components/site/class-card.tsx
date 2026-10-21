@@ -11,10 +11,9 @@ import {
 import { SignupButton } from "@/components/site/actions"
 import type { ClassOffering } from "@/content/siteData"
 
-const categoryVariant: Record<
-  ClassOffering["category"],
-  NonNullable<VariantProps<typeof badgeVariants>["variant"]>
-> = {
+type BadgeVariant = NonNullable<VariantProps<typeof badgeVariants>["variant"]>
+
+const categoryVariant: Record<string, BadgeVariant> = {
   Arts: "arts",
   "STEM/Mechanics": "stem",
   History: "history",
@@ -23,12 +22,30 @@ const categoryVariant: Record<
   Sports: "sports",
 }
 
+const extraCategoryVariants: BadgeVariant[] = [
+  "arts",
+  "stem",
+  "history",
+  "dance",
+  "culture",
+  "sports",
+]
+
+function categoryBadge(category: string): BadgeVariant {
+  const known = categoryVariant[category]
+  if (known) return known
+  const index = [...category].reduce((sum, character) => sum + character.charCodeAt(0), 0)
+  return extraCategoryVariants[index % extraCategoryVariants.length] ?? "default"
+}
+
 export function ClassCard({ item }: { item: ClassOffering }) {
   return (
     <Card id={item.id} className="scroll-mt-28 motion-safe:transition-transform motion-safe:hover:-translate-y-1">
       <CardHeader>
         <div className="flex flex-wrap gap-2">
-          <Badge variant={categoryVariant[item.category]}>{item.category}</Badge>
+          {item.category ? (
+            <Badge variant={categoryBadge(item.category)}>{item.category}</Badge>
+          ) : null}
           <Badge variant="age">{item.ages}</Badge>
         </div>
         <CardTitle>{item.title}</CardTitle>

@@ -74,23 +74,6 @@ export const calendarMonth = {
     "Weekly classes run all month, alongside open center hours for members and daily drop-ins.",
 }
 
-export type ClassCategory =
-  | "Arts"
-  | "STEM/Mechanics"
-  | "History"
-  | "Dance & Fitness"
-  | "Culture"
-  | "Sports"
-
-export const classCategories: ClassCategory[] = [
-  "Arts",
-  "STEM/Mechanics",
-  "History",
-  "Dance & Fitness",
-  "Culture",
-  "Sports",
-]
-
 export type ClassOffering = {
   id: string
   title: string
@@ -100,7 +83,7 @@ export type ClassOffering = {
   schedule: string
   price: string
   description: string
-  category: ClassCategory
+  category: string
 }
 
 export type Membership = {

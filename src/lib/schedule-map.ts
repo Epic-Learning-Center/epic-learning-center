@@ -1,7 +1,5 @@
 import {
-  classCategories,
   weekDays,
-  type ClassCategory,
   type ClassOffering,
   type SpecialEvent,
   type Weekday,
@@ -47,8 +45,7 @@ export function mapClassRows(table: SheetTable): ClassOffering[] | null {
 
     const title = row["Class name"]?.trim() ?? ""
     const day = normalizeDay(row.Day ?? "")
-    const category = normalizeCategory(row.Category ?? "")
-    if (!title || !day || !category) return []
+    if (!title || !day) return []
 
     const time = joinTimes(row["Start time"] ?? "", row["End time"] ?? "")
     const id = uniqueId(row.ID || title, usedIds)
@@ -63,25 +60,12 @@ export function mapClassRows(table: SheetTable): ClassOffering[] | null {
         schedule: time ? `${day}s, ${time}` : `${day}s`,
         price: row.Price?.trim() ?? "",
         description: row.Description?.trim() ?? "",
-        category,
-        sort: sortOrder(row["Sort order"] ?? ""),
+        category: tidyCategory(row.Category ?? ""),
       },
     ]
   })
 
   return classes
-    .sort((a, b) => a.sort - b.sort || a.title.localeCompare(b.title))
-    .map((item) => ({
-      id: item.id,
-      title: item.title,
-      ages: item.ages,
-      day: item.day,
-      time: item.time,
-      schedule: item.schedule,
-      price: item.price,
-      description: item.description,
-      category: item.category,
-    }))
 }
 
 export function mapEventRows(table: SheetTable, now = new Date()): SpecialEvent[] | null {
@@ -186,16 +170,21 @@ function normalizeDay(value: string): Weekday | null {
   return match ?? null
 }
 
-function normalizeCategory(value: string): ClassCategory | null {
-  const match = classCategories.find(
-    (category) => category.toLowerCase() === value.trim().toLowerCase()
-  )
-  return match ?? null
-}
+const familiarCategories = [
+  "Arts",
+  "STEM/Mechanics",
+  "History",
+  "Dance & Fitness",
+  "Culture",
+  "Sports",
+]
 
-function sortOrder(value: string) {
-  const number = Number(value)
-  return value.trim() !== "" && Number.isFinite(number) ? number : 1000
+function tidyCategory(value: string) {
+  const trimmed = value.trim()
+  const match = familiarCategories.find(
+    (category) => category.toLowerCase() === trimmed.toLowerCase()
+  )
+  return match ?? trimmed
 }
 
 function tidyTime(value: string) {
