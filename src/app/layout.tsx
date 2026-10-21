@@ -1,16 +1,12 @@
 import type { Metadata } from "next"
-import { Nunito } from "next/font/google"
+import "@fontsource/nunito/latin-600.css"
+import "@fontsource/nunito/latin-700.css"
+import "@fontsource/nunito/latin-800.css"
+import "@fontsource/nunito/latin-900.css"
 import "./globals.css"
 import { SiteHeader } from "@/components/site/site-header"
 import { SiteFooter } from "@/components/site/site-footer"
 import { siteConfig } from "@/content/siteData"
-
-const nunito = Nunito({
-  subsets: ["latin"],
-  weight: ["600", "700", "800", "900"],
-  variable: "--font-nunito",
-  display: "swap",
-})
 
 export const metadata: Metadata = {
   title: {
@@ -30,7 +26,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${nunito.variable} h-full antialiased`}>
+    <html lang="en" className="h-full antialiased">
       <body className="flex min-h-full flex-col bg-white">
         <SiteHeader />
         <main id="main" className="flex-1">
