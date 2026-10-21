@@ -78,8 +78,8 @@ export default function WhoWeArePage() {
 
       <Section tone="cloud">
         <div className="grid gap-4 lg:grid-cols-2">
-          <Card className="overflow-hidden p-0">
-            <div className="relative aspect-[3/2]">
+          <Card>
+            <div className="relative aspect-[3/2] overflow-hidden rounded-3xl">
               <Image
                 src="/images/chess-lesson.jpg"
                 alt="A mentor teaching children chess in the classroom"
@@ -89,7 +89,7 @@ export default function WhoWeArePage() {
                 className="object-cover"
               />
             </div>
-            <CardHeader className="px-6 sm:px-8">
+            <CardHeader>
               <CardTitle>Meet our mentors</CardTitle>
               <CardDescription>
                 EPIC&apos;s mentors rotate with our classes. We tap into Jinja&apos;s
@@ -98,7 +98,7 @@ export default function WhoWeArePage() {
                 literacy to Afro-dance and breakdancing.
               </CardDescription>
             </CardHeader>
-            <CardContent className="px-6 pb-6 sm:px-8 sm:pb-8">
+            <CardContent>
               <div className="flex flex-wrap gap-2">
                 {mentorSubjects.map((subject) => (
                   <Badge key={subject} variant="outline">
@@ -108,8 +108,8 @@ export default function WhoWeArePage() {
               </div>
             </CardContent>
           </Card>
-          <Card className="overflow-hidden border-macaw p-0">
-            <div className="relative aspect-[3/2]">
+          <Card className="border-macaw">
+            <div className="relative aspect-[3/2] overflow-hidden rounded-3xl">
               <Image
                 src="/images/drawing-maps.jpg"
                 alt="A child drawing a map during a hands-on lesson"
@@ -119,7 +119,7 @@ export default function WhoWeArePage() {
                 className="object-cover object-[center_20%]"
               />
             </div>
-            <CardHeader className="px-6 sm:px-8">
+            <CardHeader>
               <CardTitle>Meet our tutors</CardTitle>
               <CardDescription>
                 We offer private 1-on-1 and small-group tutoring sessions across
@@ -128,7 +128,7 @@ export default function WhoWeArePage() {
                 goals.
               </CardDescription>
             </CardHeader>
-            <CardContent className="px-6 pb-6 sm:px-8 sm:pb-8">
+            <CardContent>
               <WhatsAppButton>Ask about a tutor</WhatsAppButton>
             </CardContent>
           </Card>

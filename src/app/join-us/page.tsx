@@ -54,7 +54,7 @@ export default function JoinUsPage() {
             </li>
           ))}
         </ol>
-        <SignupButton className="w-full sm:w-auto">Register on Google Forms</SignupButton>
+        <SignupButton className="w-full sm:w-auto">Register now</SignupButton>
       </Section>
 
       <Section tone="cloud" id="calendar-signup" className="scroll-mt-24">

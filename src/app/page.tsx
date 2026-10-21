@@ -247,8 +247,8 @@ export default async function HomePage() {
             </EmptyContent>
           </Empty>
         )}
-        <Card className="overflow-hidden border-macaw bg-macaw p-0 text-white lg:flex-row">
-          <div className="flex flex-1 flex-col gap-4 p-6 sm:p-8">
+        <Card className="relative overflow-hidden border-macaw bg-macaw p-0 text-white sm:p-0">
+          <div className="order-last flex flex-1 flex-col gap-4 p-6 sm:p-8 lg:order-none lg:w-[56%]">
             <CardHeader>
               <p className="text-sm font-extrabold tracking-wider text-white/90 uppercase">
                 EPIC Worldschooling Hub
@@ -272,7 +272,7 @@ export default async function HomePage() {
               </Button>
             </CardFooter>
           </div>
-          <div className="relative order-first min-h-72 lg:order-last lg:w-[44%]">
+          <div className="relative order-first min-h-72 overflow-hidden rounded-t-3xl lg:absolute lg:inset-y-0 lg:right-0 lg:order-none lg:w-[44%] lg:rounded-none lg:rounded-r-3xl">
             <Image
               src="/images/soccer-group.jpg"
               alt="Children and a mentor with soccer balls on the grass at EPIC"
