@@ -72,7 +72,7 @@ Parents register through the existing Google Form linked from "Register now." Do
 
 The email box on Join Us ("Send me the calendar") is already wired. Do not build a second signup. If she says signups are not arriving, check that Netlify form detection is on and that a notification email is set under Forms. Then tell her, in one plain sentence, if she needs to click anything, and say exactly where.
 
-Photos are in `public/images/`. Founder photos must stay with the right person. Tanya is the woman with glasses and short brown hair (`founder-tanya.jpg`). Danyne is the woman with braids (`founder-danyne.jpg`).
+Photos are in `public/images/`. Founder photos must stay with the right person. Tanya is the woman with glasses and short brown hair (`founder-tanya.jpg`). Danyne is the woman with shoulder-length blonde hair in a green top (`founder-danyne.jpg`).
 
 There is one parent quote on the home page. The family did not give their name. The line under it stays "A homeschooling family at EPIC" until Tanya gives you a name. Do not invent a name.
 
