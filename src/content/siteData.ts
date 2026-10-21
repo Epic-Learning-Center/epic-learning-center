@@ -5,8 +5,7 @@
  * Weekly classes and special events are read from the Google Sheet
  * "EPIC Learning Center — Website Schedule". They are not stored here.
  *
- * Photos: drop JPG files into public/images/ using the filenames below.
- * Until a file is there, the page shows a labeled photo frame.
+ * Photos live in public/images/. The homepage uses three of them.
  */
 
 export const siteConfig = {
@@ -205,23 +204,23 @@ export type SpecialEvent = {
 
 export const heroPhotos = [
   {
-    src: "/images/hero-project.jpg",
-    alt: "Children doing a hands-on project at EPIC Learning Center",
-    caption: "[Photo: Kids doing hands-on project learning]",
+    src: "/images/classroom-lesson.jpg",
+    alt: "A mentor helping children with a hands-on lesson at a table",
+    caption: "A hands-on lesson around the table",
     tone: "feather",
     icon: "project",
   },
   {
-    src: "/images/hero-outdoor.jpg",
-    alt: "Outdoor play area with a zip line, gaga ball pit, and sandpit",
-    caption: "[Photo: Outdoor zip line, gaga ball & huge sandpit]",
+    src: "/images/sandpit-play.jpg",
+    alt: "Children and a mentor playing together in the outdoor sandpit",
+    caption: "Playtime in the sandpit",
     tone: "bee",
     icon: "outdoor",
   },
   {
-    src: "/images/hero-library.jpg",
-    alt: "Inside Jinja's only children's library at EPIC Learning Center",
-    caption: "[Photo: Inside Jinja's only children's library]",
+    src: "/images/library-storytime.jpg",
+    alt: "A read-aloud with children in the children's library",
+    caption: "Story time in the children's library",
     tone: "macaw",
     icon: "library",
   },

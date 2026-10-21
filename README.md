@@ -37,11 +37,7 @@ To show a Google Calendar later, paste an embed URL into `googleCalendarEmbedUrl
 
 ## Photos
 
-The logo and founder portraits are already in place. Drop the remaining photos into `public/images/` with these names:
-
-- `hero-project.jpg`
-- `hero-outdoor.jpg`
-- `hero-library.jpg`
+Photos are already in `public/images/`. The homepage uses `classroom-lesson.jpg`, `sandpit-play.jpg`, and `library-storytime.jpg`. The other photos are there for later pages.
 
 ## Newsletter (Netlify, no monthly fee)
 
