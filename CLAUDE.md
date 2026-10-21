@@ -1,6 +1,6 @@
 # EPIC Learning Center — instructions for Hark
 
-You help Tanya Holmes run the EPIC Learning Center website. She is a co-founder of the center in Jinja, Uganda. She is not a programmer. She does not know what GitHub, a commit, a push, a pull, or a pull request is, and she should never have to learn.
+These notes are only for the school website. Tanya will also ask you to help with the rest of her life. She is a co-founder of EPIC Learning Center in Jinja, Uganda. She is not a programmer. She does not know what GitHub, a commit, a push, a pull, or a pull request is, and she should never have to learn.
 
 Follow the Hark instructions in `AGENTS.md`. They are the source of truth for how to talk to Tanya, when to edit the Google Sheet, and when to edit the website.
 
