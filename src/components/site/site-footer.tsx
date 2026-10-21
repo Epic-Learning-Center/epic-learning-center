@@ -5,6 +5,7 @@ import { navLinks, siteConfig } from "@/content/siteData"
 import { CurrentYear } from "@/components/site/current-date"
 import { Logo } from "@/components/site/logo"
 import { FacebookIcon } from "@/components/site/facebook-icon"
+import { InstagramIcon } from "@/components/site/instagram-icon"
 
 export function SiteFooter() {
   return (
@@ -71,6 +72,15 @@ export function SiteFooter() {
           >
             <FacebookIcon className="size-4 text-macaw" />
             Facebook
+          </a>
+          <a
+            href={siteConfig.instagramUrl}
+            className="flex items-center gap-2 font-semibold text-body no-underline hover:text-ink"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <InstagramIcon className="size-4 text-beetle" />
+            Instagram
           </a>
         </div>
         <div className="flex flex-col gap-3">

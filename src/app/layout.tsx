@@ -49,6 +49,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
               email: siteConfig.email,
               telephone: siteConfig.phone,
               url: siteConfig.facebookUrl,
+              sameAs: [siteConfig.facebookUrl, siteConfig.instagramUrl],
             }),
           }}
         />

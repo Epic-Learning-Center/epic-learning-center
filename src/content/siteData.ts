@@ -21,6 +21,7 @@ export const siteConfig = {
   email: "epiclearningcenterjinja@gmail.com",
   emailHref: "mailto:epiclearningcenterjinja@gmail.com",
   facebookUrl: "https://www.facebook.com/profile.php?id=61590139876638",
+  instagramUrl: "https://www.instagram.com/epic.learning.center",
   registrationUrl:
     "https://docs.google.com/forms/d/1dAeexwolL1ASg8At6L0iP9BrlhKKODVGXwwhIxmq5eo/viewform",
   hours: [

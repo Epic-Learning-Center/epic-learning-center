@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { Clock, Mail, MapPin, MessageCircle, Phone } from "lucide-react"
 import { SignupButton } from "@/components/site/actions"
 import { FacebookIcon } from "@/components/site/facebook-icon"
+import { InstagramIcon } from "@/components/site/instagram-icon"
 import { NewsletterForm } from "@/components/site/newsletter-form"
 import { PageHero, Section, SectionHeading } from "@/components/site/section"
 import {
@@ -136,6 +137,17 @@ export default function JoinUsPage() {
                     rel="noopener noreferrer"
                   >
                     Follow EPIC Learning Center on Facebook
+                  </a>
+                </li>
+                <li className="flex items-start gap-3">
+                  <InstagramIcon className="mt-0.5 size-5 shrink-0 text-beetle" />
+                  <a
+                    className="font-extrabold text-ink no-underline hover:text-macaw"
+                    href={siteConfig.instagramUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Follow EPIC Learning Center on Instagram
                   </a>
                 </li>
               </ul>
