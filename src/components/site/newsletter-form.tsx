@@ -33,7 +33,7 @@ export function NewsletterForm() {
     setStatus("submitting")
 
     try {
-      const response = await fetch("/", {
+      const response = await fetch("/__forms.html", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams({
@@ -43,7 +43,7 @@ export function NewsletterForm() {
         }).toString(),
       })
 
-      if (response.ok || response.status === 404 || response.status === 405) {
+      if (response.ok) {
         setStatus("success")
         return
       }
@@ -74,7 +74,7 @@ export function NewsletterForm() {
     <form
       name="newsletter"
       method="POST"
-      action="/"
+      action="/__forms.html"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
       onSubmit={onSubmit}

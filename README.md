@@ -41,7 +41,9 @@ Photos are already in `public/images/`. The homepage uses `classroom-lesson.jpg`
 
 ## Newsletter (Netlify, no monthly fee)
 
-The Join Us page includes an email form with `data-netlify="true"`. After you deploy to Netlify, submissions show up under **Forms → newsletter**. A copy of the form also lives in `public/forms.html` so Netlify can find it at build time.
+The Join Us page posts email signups to Netlify Forms. A hidden copy of the form lives in `public/__forms.html` so Netlify can register it during the deploy.
+
+In the Netlify site, open **Forms → Form detection** and turn detection on, then redeploy. New signups appear under **Forms → newsletter**. Add an email notification under **Forms → Submission notifications** if the founders should get each signup in their inbox. The free plan includes the form submissions.
 
 ## Deploy to Netlify
 

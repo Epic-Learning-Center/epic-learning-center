@@ -5,8 +5,8 @@
     <title>EPIC Learning Center forms</title>
   </head>
   <body>
-    <!-- Static copy so Netlify can detect the newsletter form at build time. -->
-    <form name="newsletter" method="POST" action="/" data-netlify="true" data-netlify-honeypot="bot-field">
+    <!-- Static copy so Netlify can register the newsletter form at deploy time. -->
+    <form name="newsletter" method="POST" action="/__forms.html" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
       <input type="hidden" name="form-name" value="newsletter" />
       <p hidden>
         <label>Don’t fill this out: <input name="bot-field" /></label>
