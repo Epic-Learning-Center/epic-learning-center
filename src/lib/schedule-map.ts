@@ -49,6 +49,8 @@ export function mapClassRows(table: SheetTable): ClassOffering[] | null {
 
     const time = joinTimes(row["Start time"] ?? "", row["End time"] ?? "")
     const id = uniqueId(row.ID || title, usedIds)
+    const weeks = tidyWeeks(row["Which weeks"] ?? "")
+    const days = weeks ? `${weeks} ${day}s of the month` : `${day}s`
 
     return [
       {
@@ -57,7 +59,8 @@ export function mapClassRows(table: SheetTable): ClassOffering[] | null {
         ages: row.Ages?.trim() || "All Ages",
         day,
         time,
-        schedule: time ? `${day}s, ${time}` : `${day}s`,
+        weeks,
+        schedule: time ? `${days}, ${time}` : days,
         price: row.Price?.trim() ?? "",
         description: row.Description?.trim() ?? "",
         category: tidyCategory(row.Category ?? ""),
@@ -185,6 +188,12 @@ function tidyCategory(value: string) {
     (category) => category.toLowerCase() === trimmed.toLowerCase()
   )
   return match ?? trimmed
+}
+
+function tidyWeeks(value: string) {
+  const trimmed = value.trim().replace(/\s+/g, " ")
+  if (!trimmed || /^(every|all|weekly)/i.test(trimmed)) return ""
+  return trimmed
 }
 
 function tidyTime(value: string) {
