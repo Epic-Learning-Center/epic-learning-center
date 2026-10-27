@@ -82,6 +82,8 @@ export type ClassOffering = {
   ages: string
   day: Weekday
   time: string
+  /** Which weeks of the month it meets, like "1st and 3rd". Blank means every week. */
+  weeks?: string
   schedule: string
   price: string
   description: string
