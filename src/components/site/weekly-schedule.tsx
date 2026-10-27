@@ -46,6 +46,11 @@ export function WeeklySchedule({ classes }: { classes: ClassOffering[] }) {
                 >
                   <p className="text-base font-extrabold text-slate-600">{session.time}</p>
                   <p className="mt-1 text-lg font-extrabold text-ink">{session.title}</p>
+                  {session.weeks ? (
+                    <p className="mt-1 text-base font-extrabold text-coral">
+                      {session.weeks} {day}s only
+                    </p>
+                  ) : null}
                   <p className="mt-1 text-base font-semibold text-body">{session.ages}</p>
                 </Link>
               ))
