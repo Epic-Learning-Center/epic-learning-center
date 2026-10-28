@@ -15,6 +15,7 @@ import {
 import { SignupButton, WhatsAppButton } from "@/components/site/actions"
 import { ClassCard } from "@/components/site/class-card"
 import { PhotoFrame } from "@/components/site/photo-frame"
+import { ReviewCarousel } from "@/components/site/review-carousel"
 import { Section, SectionHeading } from "@/components/site/section"
 import { Button } from "@/components/ui/button"
 import {
@@ -33,10 +34,9 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { getSchedule } from "@/content/schedule"
+import { getReviews, getSchedule } from "@/content/schedule"
 import {
   audiences,
-  familyQuote,
   heroPhotos,
   highlights,
   safetyPoints,
@@ -78,7 +78,7 @@ const highlightTone = [
 ]
 
 export default async function HomePage() {
-  const { classes } = await getSchedule()
+  const [{ classes }, reviews] = await Promise.all([getSchedule(), getReviews()])
 
   return (
     <>
@@ -193,14 +193,7 @@ export default async function HomePage() {
             )
           })}
         </div>
-        <figure className="max-w-3xl border-l-4 border-bee pl-5 sm:pl-6">
-          <blockquote className="text-lg leading-relaxed font-extrabold text-ink sm:text-xl">
-            “{familyQuote.text}”
-          </blockquote>
-          <figcaption className="mt-4 text-base font-extrabold text-slate-500">
-            {familyQuote.attribution}
-          </figcaption>
-        </figure>
+        {reviews.length > 0 && <ReviewCarousel reviews={reviews} />}
       </Section>
 
       <Section tone="green">
