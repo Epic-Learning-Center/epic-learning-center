@@ -1,5 +1,5 @@
 import { cacheLife, cacheTag } from "next/cache"
-import { mapClassRows, mapEventRows } from "@/lib/schedule-map"
+import { mapClassRows, mapEventRows, mapReviewRows } from "@/lib/schedule-map"
 import { parseCsv } from "@/lib/sheet-csv"
 
 const sheetId = "1xPTSbbbwSgvuGUrOPdlVoKEza721vMMwFjz8mPy7RtM"
@@ -54,4 +54,23 @@ export async function getSchedule() {
     classes: (classRows && mapClassRows(classRows)) || [],
     events: (eventRows && mapEventRows(eventRows)) || [],
   }
+}
+
+/**
+ * Parent reviews shown on the home page.
+ * Reads the Reviews tab of the same public sheet. Rows with Show on website
+ * set to No are left out, and row order is the order on the site. A missing
+ * tab comes back as an empty list so the section quietly hides.
+ */
+export async function getReviews() {
+  "use cache"
+  cacheLife("minutes")
+  cacheTag("epic-reviews")
+
+  const rows = await loadSheet("Reviews").catch((error: unknown) => {
+    console.error("EPIC reviews sheet could not be read.", error)
+    return null
+  })
+
+  return (rows && mapReviewRows(rows)) || []
 }
