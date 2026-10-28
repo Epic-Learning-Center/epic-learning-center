@@ -74,7 +74,7 @@ The email box on Join Us ("Send me the calendar") is already wired. Do not build
 
 Photos are in `public/images/`. Founder photos must stay with the right person. Tanya is the woman with glasses and short brown hair (`founder-tanya.jpg`). Danyne is the woman with shoulder-length blonde hair in a green top (`founder-danyne.jpg`).
 
-There is one parent quote on the home page. The family did not give their name. The line under it stays "A homeschooling family at EPIC" until Tanya gives you a name. Do not invent a name.
+Parent reviews on the home page come from the Reviews tab of the Google Sheet and show as a slideshow. To add, hide, or reorder a review, edit that tab, not the website. The first review's family did not give their name; its "Who said it" stays "A homeschooling family at EPIC" until Tanya gives you a name. Never invent a name or a quote.
 
 ## The Google Sheet
 
@@ -90,6 +90,7 @@ Tabs:
 
 - **Classes.** Weekly classes. The website shows a row only when Show on website is Yes. Row order is the order on the site. Dragging a row changes the order. Home, What We Offer, and the Monthly Calendar all read these rows.
 - **Special events.** Workshops and one-off dates. Shown when Show on website is Yes. Ordered by date, not by row. A past date drops off by itself.
+- **Reviews.** Parent reviews on the home page slideshow. Columns: Show on website, Review, Who said it, Staff notes. Shown when Show on website is Yes, in row order. A blank Who said it shows as "A family at EPIC". If none show, the section hides.
 - **How to use this.** Notes for Tanya and staff. The website does not read this tab. When you change how the sheet works, update this tab in the same plain language.
 
 Class columns the website already understands: Show on website, ID, Class name, Ages, Day, Start time, End time, Price, Category, Description, Mentor, Staff notes.
