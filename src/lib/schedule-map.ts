@@ -1,6 +1,7 @@
 import {
   weekDays,
   type ClassOffering,
+  type Review,
   type SpecialEvent,
   type Weekday,
 } from "../content/siteData"
@@ -262,4 +263,22 @@ function slugify(value: string) {
     .replace(/&/g, " and ")
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "")
+}
+
+const reviewHeaders = ["Show on website", "Review"] as const
+
+export function mapReviewRows(table: SheetTable): Review[] | null {
+  if (!hasHeaders(table, reviewHeaders)) return null
+
+  return table.rows
+    .filter((row) => (row["Show on website"] ?? "").trim().toLowerCase() === "yes")
+    .map((row) => ({
+      text: stripQuotes(row["Review"] ?? ""),
+      attribution: (row["Who said it"] ?? "").trim() || "A family at EPIC",
+    }))
+    .filter((review) => review.text !== "")
+}
+
+function stripQuotes(value: string) {
+  return value.trim().replace(/^["“”']+|["“”']+$/g, "").trim()
 }
