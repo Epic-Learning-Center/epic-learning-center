@@ -250,6 +250,11 @@ export const audiences = [
   },
 ] as const
 
+export type Review = {
+  text: string
+  attribution: string
+}
+
 export const familyQuote = {
   text: "I can say that our family is grateful for the opportunity to learn alongside so many special kids at EPIC. We really look forward to the classes, especially the Wednesday Community Day. It’s rare for home educated learners and parents to find a place that offers so much thoughtful, intentional academic support as well as fun and social connection. We study hard at home all week, and then we get a welcome boost by attending a weekly class at EPIC!",
   attribution: "A homeschooling family at EPIC",
